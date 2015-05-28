@@ -1,0 +1,226 @@
+<Schema name="Amadeus">
+  <Cube name="PEDIDOS" visible="true" cache="true" enabled="true">
+    <Table name="fato_pedidos" schema="public">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_professor_sk" highCardinality="false" name="Professor">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_professor_sk">
+        <Table name="dim_professor" schema="public">
+        </Table>
+        <Level name="Nome" visible="true" column="nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="CPF" visible="true" column="cpf" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Sexo" visible="true" column="sexo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="T&#237;tulo" visible="true" column="titulo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Institui&#231;&#227;o" visible="true" column="instituicao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Ano" visible="true" column="ano" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="C&#243;d. Professor" visible="true" column="id_professor" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="date_fat" highCardinality="false" name="Data">
+      <Hierarchy visible="true" hasAll="true" primaryKey="day_date">
+        <Table name="dim_tempo" schema="public">
+        </Table>
+        <Level name="Ano" visible="true" column="year_number" type="Integer" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="M&#234;s" visible="true" column="month_number" type="Integer" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="Dia" visible="true" column="day_of_month_number" type="Integer" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_curriculo_sk" highCardinality="false" name="Curriculo">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_curriculo_sk">
+        <Table name="dim_curriculo" schema="public">
+        </Table>
+        <Level name="Titulo" visible="true" column="titulo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Instituicao" visible="true" column="instituicao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Ano" visible="true" column="ano" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Quantidade" column="id_pedido" aggregator="count" visible="true">
+    </Measure>
+  </Cube>
+  <Cube name="AVALIACOES REALIZADAS" visible="true" cache="true" enabled="true">
+    <Table name="fato_avaliacoes_realizadas" schema="public">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_curso_sk" highCardinality="false" name="Curso">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_curso_sk">
+        <Table name="dim_curso" schema="public">
+        </Table>
+        <Level name="Nome" visible="true" column="nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Descri&#231;&#227;o" visible="true" column="descricao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_modulo_sk" highCardinality="false" name="Modulo">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_modulo_sk">
+        <Table name="dim_modulo" schema="public">
+        </Table>
+        <Level name="Nome" visible="true" column="nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="date_fat" highCardinality="false" name="Data">
+      <Hierarchy visible="true" hasAll="true" primaryKey="day_date">
+        <Table name="dim_tempo" schema="public">
+        </Table>
+        <Level name="Ano" visible="true" column="year_number" type="Integer" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="M&#234;s" visible="true" column="month_number" type="Integer" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="Dia" visible="true" column="day_of_month_number" type="Integer" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_aluno_sk" name="Aluno">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_aluno_sk">
+        <Table name="dim_aluno" schema="public" alias="">
+        </Table>
+        <Level name="Nome" visible="true" column="nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Quantidade" column="id_avaliacao" aggregator="count" visible="true">
+    </Measure>
+  </Cube>
+  <Cube name="HISTORICO CURSO" visible="true" cache="true" enabled="true">
+    <Table name="fato_historico_curso" schema="public">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_professor_sk" highCardinality="false" name="Professor">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_professor_sk">
+        <Table name="dim_professor" schema="public">
+        </Table>
+        <Level name="Nome" visible="true" column="nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_curso_sk" highCardinality="false" name="Curso">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_curso_sk">
+        <Table name="dim_curso" schema="public">
+        </Table>
+        <Level name="Nome" visible="true" column="nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="date_fat" highCardinality="false" name="Data">
+      <Hierarchy visible="true" hasAll="true" primaryKey="day_date">
+        <Table name="dim_tempo" schema="public">
+        </Table>
+        <Level name="Ano" visible="true" column="year_number" type="Integer" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="M&#234;s" visible="true" column="month_number" type="Integer" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="Dia" visible="true" column="day_of_month_number" type="Integer" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Quantidade" column="id_curso" aggregator="count" visible="true">
+    </Measure>
+    <Measure name="M&#233;dia M&#225;ximo Alunos" column="maximo_alunos" aggregator="avg" visible="true">
+    </Measure>
+  </Cube>
+  <Cube name="HISTORICO MATERIAIS" visible="true" cache="true" enabled="true">
+    <Table name="fato_historico_materiais" schema="public">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_professor_sk" highCardinality="false" name="Professor">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_professor_sk">
+        <Table name="dim_professor" schema="public">
+        </Table>
+        <Level name="Nome" visible="true" column="nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Titulo" visible="true" column="titulo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Ano" visible="true" column="ano" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_modulo_sk" highCardinality="false" name="Modulo">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_modulo_sk">
+        <Table name="dim_modulo" schema="public">
+        </Table>
+        <Level name="Nome" visible="true" column="nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="date_fat" highCardinality="false" name="Data">
+      <Hierarchy visible="true" hasAll="true" primaryKey="day_date">
+        <Table name="dim_tempo" schema="public">
+        </Table>
+        <Level name="Ano" visible="true" column="year_number" type="Integer" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="M&#234;s" visible="true" column="month_number" type="Integer" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="Dia" visible="true" column="day_of_month_number" type="Integer" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_material_sk" highCardinality="false" name="Materiais">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_material_sk">
+        <Table name="dim_material" schema="public">
+        </Table>
+        <Level name="Extensao" visible="true" column="extensao" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Nome_do_Arquivante" visible="true" column="nome_arquivante" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Quantidade" column="id_material" aggregator="count" visible="true">
+    </Measure>
+  </Cube>
+  <Cube name="MENSAGENS PROFESSOR" visible="true" cache="true" enabled="true">
+    <Table name="fato_mensagens_professor" schema="public">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_professor_sk" highCardinality="false" name="Professor">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_professor_sk">
+        <Table name="dim_professor" schema="public">
+        </Table>
+        <Level name="Nome" visible="true" column="nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Titulo" visible="true" column="titulo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Ano" visible="true" column="ano" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_forum_sk" highCardinality="false" name="Forum">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_forum_sk">
+        <Table name="dim_forum" schema="public">
+        </Table>
+        <Level name="Nome" visible="true" column="nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_modulo_sk" highCardinality="false" name="Modulo">
+      <Hierarchy visible="true" hasAll="true" primaryKey="id_modulo_sk">
+        <Table name="dim_modulo" schema="public">
+        </Table>
+        <Level name="Nome" visible="true" column="nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="date_fat" highCardinality="false" name="Data">
+      <Hierarchy visible="true" hasAll="true" primaryKey="day_date">
+        <Table name="dim_tempo" schema="public">
+        </Table>
+        <Level name="Ano" visible="true" column="year_number" type="Integer" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="M&#234;s" visible="true" column="month_number" type="Integer" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="Dia" visible="true" column="day_of_month_number" type="Integer" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Quantidade" column="id_mensagem" aggregator="count" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
