@@ -2,7 +2,7 @@
 Projeto de Business Intelligence para o Amadeus LMS desenvolvido como Trabalho de Conclusão de Curso na faculdade Estácio do Recife
 ## Como rodar o Projeto?
 
-- Esse Projeto foi desenvolvido original na Suíte Pentaho versão 5.3 (http://wiki.pentaho.com/display/COM/Getting+Started+Downloads).
+- Esse Projeto foi desenvolvido original na Suíte Pentaho versão 5.3 http://wiki.pentaho.com/display/COM/Getting+Started+Downloads
 
 - Nesse projeto tem arquivos para: BI-SERVER (Business Intelligence Server), PDI (Kettle), Schema Workbench
 - Execute o arquivo SQL (PostgresSQL) para a criação das tabelas FATO e Dimensão.
