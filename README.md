@@ -16,5 +16,6 @@ Projeto de Business Intelligence para o Amadeus LMS desenvolvido como Trabalho d
 ## Como Contribuir?
 
 Primeiramente você deve forkar o projeto aqui pelo Github. O ideal é para quem conhece a ferramenta de EAD Amadeus LMS. 
+Temos interesse em adaptar o projeto em outras Ferramentas de EAD, entre em contato!
 
 
